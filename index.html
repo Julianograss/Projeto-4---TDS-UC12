@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="src/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
   </head>
   <body>
     <header>
@@ -12,15 +16,67 @@
         <div class="logo">
           <img src="src/logoTechStore.png" />
         </div>
-        <div class="produtos"></div>
-        <div class="servicos"></div>
       </div>
       <div class="header-box-2">
+        <div class="produtos"></div>
+        <div class="servicos"></div>
         <div class="sobre-carrinho"></div>
         <div class="botoes"></div>
       </div>
     </header>
-    <main></main>
+    <main>
+      <header class="header-main">
+        <div class="header-main-mensagem">
+          <h2><b>Encontre os melhores produtos!</b></h2>
+          <h5>Tudo o que você precisa relacionado a tecnologia</h5>
+        </div>
+        <div class="barra-busca"></div>
+        <div class="categorias">
+          <div><a href="#">Computadores</a></div>
+          <div><a href="#">Componentes</a></div>
+          <div><a href="#">Gamer</a></div>
+          <div><a href="#">Celulares e Tablets</a></div>
+          <div><a href="#">Áudio</a></div>
+          <div><a href="#">Monitores</a></div>
+          <div><a href="#">Periféricos</a></div>
+          <div><a href="#">Redes</a></div>
+          <div><a href="#">Armazenamento</a></div>
+          <div><a href="#">Cabos e Adaptadores</a></div>
+          <div><a href="#">Casa Inteligente</a></div>
+          <div><a href="#">Foto e Vídeo</a></div>
+          <div><a href="#">Energia</a></div>
+          <div><a href="#">Serviços</a></div>
+        </div>
+      </header>
+      <section class="lancamentos">
+        <div class="mensagem-box">
+          <div class="mensagem-lancamentos">
+            <h5>Produtos</h5>
+            <h2>Lançamentos</h2>
+          </div>
+          <button class="btn-ver-todos">
+            Ver Todos<i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+        <div class="carrossel">
+          <button class="btn-carrossel-anterior"></button>
+          <div class="carrossel-lancamentos">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+          <button class="btn-carrossel-proximo"></button>
+        </div>
+      </section>
+      <section class="computadores"></section>
+      <section class="componentes"></section>
+      <section class="gamer"></section>
+      <section class="celulares-tables"></section>
+    </main>
     <footer></footer>
+    <script src="src/script.js"></script>
   </body>
 </html>

@@ -1,94 +1,205 @@
 * {
-    padding: 0px;
-    margin: 0px;
-    box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
 }
 body {
-    background-color: rgb(22, 45, 95);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 2vh;
+  background-color: rgb(22, 45, 95);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2vh;
 }
 header {
-    border: 2px solid white;
-    width: 100%;
-    height: 13vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas: 
-        "box-1 box-2";
+  border: 2px solid white;
+  width: 100%;
+  height: 13vh;
+  display: grid;
+  grid-template-columns: 17rem 1fr;
+  grid-template-areas: "box-1 box-2";
 }
-.header-box-1{
-    grid-area: box-1;
-    align-self: center;
-    border: 2px solid white;
-    width: 30rem;
-    height: 6rem;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding-left: 50px;
+.header-box-1 {
+  grid-area: box-1;
+  align-self: center;
+  border: 2px solid white;
+  height: 6rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
 }
 .logo img {
-    width: 10rem;
-    height: 5rem;
-    border: 2px solid white;
-    margin-left: 4vw;
+  width: 10rem;
+  height: 5rem;
+  border: 2px solid white;
+  background-color: white;
+}
+.header-box-2 {
+  grid-area: box-2;
+  align-self: center;
+  border: 2px solid white;
+  height: 6rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
 }
 .produtos {
-    width: 5rem;
-    height: 3rem;
-    border: 2px solid white;
-    margin-left: 1vw;
+  width: 5rem;
+  height: 2rem;
+  border: 2px solid white;
 }
 .servicos {
-    width: 5rem;
-    height: 3rem;
-    border: 2px solid white;
-    margin-left: 1vw;
+  width: 5rem;
+  height: 2rem;
+  border: 2px solid white;
 }
-.header-box-2{
-    grid-area: box-2;
+.sobre-carrinho {
+  width: 5rem;
+  height: 2rem;
+  border: 2px solid white;
+}
+.botoes {
+  width: 20rem;
+  height: 4rem;
+  border: 2px solid white;
+}
+main {
+  border: 2px solid white;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1vh;
+}
+.header-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 20vh;
+  gap: 1vh;
+}
+.header-main-mensagem {
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.barra-busca {
+  border: 2px solid white;
+  border-radius: 10px;
+  width: 50%;
+  height: 2rem;
+}
+.categorias {
+  border: 2px solid white;
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1vw;
+  flex-wrap: wrap;
+}
+.categorias div {
+  border: 2px solid white;
+  border-radius: 20px;
+  width: auto;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 10px;
+}
+.categorias div a {
+  color: white;
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.lancamentos {
+    border: 2px solid white;
+    width: 98%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.mensagem-box{
+    border: 2px solid white;
+    color: white;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 0vw 8vh;
+}
+.mensagem-lancamentos {
+    border: 2px solid white;
+    color: white;
+    width: auto;
+}
+.btn-ver-todos{
     align-self: center;
     justify-self: flex-end;
+}
+.carrossel {
     border: 2px solid white;
-    width: 30rem;
-    height: 6rem;
+    width: 90%;
+    height: 50vh;
+    align-self: center;
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding-left: 50px;
+    justify-content: center;
+    gap: 0.5vw;
 }
-.sobre-carrinho {
-    width: 5rem;
-    height: 3rem;
+.carrossel-lancamentos {
     border: 2px solid white;
-    margin-right: 20px;
+    width: 90%;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2vw;
+    padding: 20px;
 }
-.botoes {
-    width: 12rem;
-    height: 5rem;
+.carrossel-lancamentos div{
     border: 2px solid white;
-    margin-right: 5vw;
+    width: 250px;
+    height: 150px;
 }
-main {
-    border: 2px solid white;
-    width: 100%;
-    height: 70vh;
+.btn-carrossel-anterior, .btn-carrossel-proximo{
+    width: 4%;
+    height: 8%;
 }
 footer {
-    border: 2px solid white;
-    width: 100%;
-    height: 13vh;
+  border: 2px solid white;
+  width: 100%;
+  height: 13vh;
 }
-@media (max-width: 800px){
-    header{
-        grid-template-columns: 1fr;
-        grid-template-areas: 
-        "box-1" 
-        "box-2";
-        height: auto;
-    }
+@media (max-width: 1000px) {
+  header {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    padding: 20px 0px;
+  }
+  .header-box-1 {
+    justify-content: center;
+  }
+  .header-box-2 {
+    width: 100%;
+  }
+  .header-main{
+    height: auto;
+  }
 }
