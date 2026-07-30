@@ -1,10 +1,20 @@
+:root {
+  --primary: #f39c12;
+  --primary-dark: #d68910;
+  --dark: #2c3e50;
+  --light: #f4f6f7;
+  --white: #ffffff;
+  --danger: #e74c3c;
+  --text: #333333;
+  --background: rgb(22, 45, 95);
+}
 * {
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
 }
 body {
-  background-color: rgb(22, 45, 95);
+  background-color: var(--background);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12,7 +22,7 @@ body {
   gap: 2vh;
 }
 header {
-  border: 2px solid white;
+  border: 2px solid var(--white);
   width: 100%;
   height: 13vh;
   display: grid;
@@ -22,7 +32,7 @@ header {
 .header-box-1 {
   grid-area: box-1;
   align-self: center;
-  border: 2px solid white;
+  border: 2px solid var(--white);
   height: 6rem;
   display: flex;
   flex-direction: row;
@@ -32,13 +42,13 @@ header {
 .logo img {
   width: 10rem;
   height: 5rem;
-  border: 2px solid white;
-  background-color: white;
+  border: 2px solid var(--white);
+  background-color: var(--white);
 }
 .header-box-2 {
   grid-area: box-2;
   align-self: center;
-  border: 2px solid white;
+  border: 2px solid var(--white);
   height: 6rem;
   display: flex;
   flex-direction: row;
@@ -48,25 +58,25 @@ header {
 .produtos {
   width: 5rem;
   height: 2rem;
-  border: 2px solid white;
+  border: 2px solid var(--white);
 }
 .servicos {
   width: 5rem;
   height: 2rem;
-  border: 2px solid white;
+  border: 2px solid var(--white);
 }
 .sobre-carrinho {
   width: 5rem;
   height: 2rem;
-  border: 2px solid white;
+  border: 2px solid var(--white);
 }
 .botoes {
   width: 20rem;
   height: 4rem;
-  border: 2px solid white;
+  border: 2px solid var(--white);
 }
 main {
-  border: 2px solid white;
+  border: 2px solid var(--white);
   width: 100%;
   height: auto;
   display: flex;
@@ -86,20 +96,20 @@ main {
 }
 .header-main-mensagem {
   font-family: Arial, Helvetica, sans-serif;
-  color: white;
+  color: var(--white);
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
 }
 .barra-busca {
-  border: 2px solid white;
+  border: 2px solid var(--white);
   border-radius: 10px;
   width: 50%;
   height: 2rem;
 }
 .categorias {
-  border: 2px solid white;
+  border: 2px solid var(--white);
   width: 80%;
   display: flex;
   flex-direction: row;
@@ -109,7 +119,7 @@ main {
   flex-wrap: wrap;
 }
 .categorias div {
-  border: 2px solid white;
+  border: 2px solid var(--white);
   border-radius: 20px;
   width: auto;
   height: 2rem;
@@ -119,12 +129,12 @@ main {
   padding: 0px 10px;
 }
 .categorias div a {
-  color: white;
+  color: var(--white);
   text-decoration: none;
   font-family: Arial, Helvetica, sans-serif;
 }
 .section-box.lancamentos {
-  border: 2px solid white;
+  border: 2px solid var(--white);
   width: 98%;
   height: auto;
   display: flex;
@@ -133,7 +143,7 @@ main {
   padding: 2vh 0vh;
 }
 .section-box {
-  border: 2px solid white;
+  border: 2px solid var(--white);
   width: 98%;
   height: auto;
   display: flex;
@@ -142,8 +152,8 @@ main {
   padding: 2vh 0vh;
 }
 .mensagem-box {
-  border: 2px solid white;
-  color: white;
+  border: 2px solid var(--white);
+  color: var(--white);
   width: 80%;
   display: flex;
   flex-direction: row;
@@ -152,7 +162,7 @@ main {
   justify-content: space-between;
 }
 .carrossel {
-  border: 2px solid white;
+  border: 2px solid var(--white);
   width: 90%;
   height: 30vh;
   align-self: center;
@@ -160,11 +170,53 @@ main {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 0.5vw;
+  gap: 5vw;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+.produto {
+  border: 2px solid var(--white);
+  min-width: 150px;
+  min-height: 200px;
+  position: relative;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+  color: white;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out; /* MÁGICA DA TRANSIÇÃO AQUI */
+  z-index: 0;
+}
+.produto.ativo {
+  opacity: 1;
+  z-index: 1;
+}
+.botao {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 12px 18px;
+  font-size: 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  z-index: 2; /* Fica acima dos slides */
+}
+.botao:hover {
+  background-color: rgba(0, 0, 0, 0.8);
 }
 .mensagem {
-  border: 2px solid white;
-  color: white;
+  border: 2px solid var(--white);
+  color: var(--white);
   width: auto;
 }
 .btn-ver-todos {
@@ -174,13 +226,13 @@ main {
 
 /*carrossel de lançamentos*/
 .mensagem-lancamentos {
-  border: 2px solid white;
-  color: white;
+  border: 2px solid var(--white);
+  color: var(--white);
   width: auto;
 }
 .mensagem-box-lancamentos {
-  border: 2px solid white;
-  color: white;
+  border: 2px solid var(--white);
+  color: var(--white);
   width: 80%;
   display: flex;
   flex-direction: row;
@@ -189,7 +241,7 @@ main {
   justify-content: space-between;
 }
 .carrossel-box-lancamentos {
-  border: 2px solid white;
+  border: 2px solid var(--white);
   width: 90%;
   height: 50vh;
   align-self: center;
@@ -200,7 +252,7 @@ main {
   gap: 0.5vw;
 }
 .carrossel-lancamentos {
-  border: 2px solid white;
+  border: 2px solid var(--white);
   width: 90%;
   height: 400px;
   display: grid;
@@ -210,7 +262,7 @@ main {
   padding: 20px;
 }
 .carrossel-lancamentos div {
-  border: 2px solid white;
+  border: 2px solid var(--white);
   width: 250px;
   height: 150px;
 }
@@ -222,12 +274,12 @@ main {
 
 /*carrossel de computadores*/
 .mensagem-computadores {
-  border: 2px solid white;
-  color: white;
+  border: 2px solid var(--white);
+  color: var(--white);
   width: auto;
 }
 footer {
-  border: 2px solid white;
+  border: 2px solid var(--white);
   width: 100%;
   height: 13vh;
 }
@@ -246,5 +298,15 @@ footer {
   }
   .header-main {
     height: auto;
+  }
+}
+@media (max-width: 1100px) {
+  .carrossel-lancamentos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .carrossel-lancamentos div {
+    border: 2px solid var(--white);
+    width: 120px;
+    height: 80px;
   }
 }
