@@ -1,24 +1,41 @@
-let produtoAtual = 0;
+document.querySelectorAll(".carrossel").forEach((carrossel) => {
+  const track = carrossel.querySelector(".track");
+  const produtos = carrossel.querySelectorAll(".produto");
+  const anterior = carrossel.querySelector(".anterior");
+  const proximo = carrossel.querySelector(".proximo");
+  let indice = 0;
+  function produtosVisiveis() {
 
-// Pegamos todos os elementos HTML que têm a classe 'slide'
-const produtos = document.querySelectorAll(".produto");
+    const larguraCarrossel = carrossel.clientWidth;
+    const larguraProduto = produtos[0].offsetWidth + 20; // gap
 
-function mudarSlide(direcao) {
-  // 1. Removemos a classe 'ativo' do slide atual, fazendo ele sumir (fade out)
-  produtos[produtoAtual].classList.remove("ativo");
+    return Math.floor(larguraCarrossel / larguraProduto);
 
-  // 2. Atualizamos o número do slide somando a direção (-1 ou +1)
-  produtoAtual += direcao;
-
-  // 3. Regras para criar o "Loop Infinito"
-  if (produtoAtual >= produtos.length) {
-    // Se passou do último, volta pro primeiro
-    produtoAtual = 0;
-  } else if (produtoAtual < 0) {
-    // Se voltou do primeiro, vai pro último
-    produtoAtual = produtos.length - 1;
-  }
-
-  // 4. Adicionamos a classe 'ativo' no novo slide, fazendo ele aparecer (fade in)
-  produtos[produtoAtual].classList.add("ativo");
 }
+  function atualizar() {
+    const largura = produtos[0].offsetWidth + 20;
+
+    track.style.transform = `translateX(-${indice * largura}px)`;
+  }
+  proximo.addEventListener("click", () => {
+    const visiveis = produtosVisiveis();
+    if (indice >= produtos.length - visiveis) {
+      indice = 0; 
+    } else {
+      indice++;
+    }
+    atualizar();
+  });
+
+  anterior.addEventListener("click", () => {
+    const visiveis = produtosVisiveis();
+    if (indice <= 0) {
+      indice = produtos.length - visiveis;
+    } else {
+      indice--;
+    }
+    atualizar();
+  });
+
+  window.addEventListener("resize", atualizar());
+});
