@@ -18,10 +18,17 @@
         </div>
       </div>
       <div class="header-box-2">
-        <div class="produtos"></div>
-        <div class="servicos"></div>
-        <div class="sobre-carrinho"></div>
-        <div class="botoes"></div>
+        <div class="home"><a href="index.html">Home</a></div>
+        <div class="produtos"><a href="#">Produtos<i class="fa-solid fa-chevron-down"></i></a></div>
+        <div class="servicos"><a href="#">Serviços<i class="fa-solid fa-chevron-down"></i></a></div>
+        <div class="sobre-carrinho">
+          <a href="sobre.html"><i class="fa-regular fa-circle-question"></i></a>
+          <a href="carrinho.html"><i class="fa-solid fa-cart-shopping"></i></a>
+        </div>
+        <div class="botoes">
+          <button class="btn-entrar"><a href="entrar.html">Entrar</a></button>
+          <button class="btn-criar-conta"><a href="criarConta.html">Criar Conta</a></button>
+        </div>
       </div>
     </header>
     <main>
@@ -30,7 +37,12 @@
           <h2><b>Encontre os melhores produtos!</b></h2>
           <h5>Tudo o que você precisa relacionado a tecnologia</h5>
         </div>
-        <div class="barra-busca"></div>
+        <div class="barra-busca">
+          <form action="/buscar" method="GET">
+            <input class="campo-busca" type="search" id="campo-busca" name="q" placeholder="Digite o que procura...">
+            <button class="btn-buscar" type="submit">Buscar</button>
+          </form>
+        </div>
         <div class="categorias">
           <div><a href="#">Computadores</a></div>
           <div><a href="#">Componentes</a></div>
@@ -82,8 +94,8 @@
             </div>
           </div>
 
-          <button class="botao anterior" onclick="mudarSlideBanner(-1)">&#10094;</button>
-          <button class="botao proximo" onclick="mudarSlideBanner(1)">&#10095;</button>
+          <button class="botao anterior" onclick="mudarSlideBanner(-1)"><i class="fa-solid fa-chevron-left"></i></button>
+          <button class="botao proximo" onclick="mudarSlideBanner(1)"><i class="fa-solid fa-chevron-right"></i></button>
       </section>
       <section class="section-box produtos-oferta">
         <div class="mensagem-box">
@@ -95,10 +107,15 @@
           </button>
         </div>
         <div class="carrossel">
-          <button class="botao anterior">&#10094;</button>
+          <button class="botao anterior"><i class="fa-solid fa-chevron-left"></i></button>
 
           <div class="track">
-            <div class="produto"></div>
+            <button class="produto">
+              <img src="src/">
+              <p>NomeProduto e Descrição</p>
+              <p>Preço a vista</p>
+              <p>Preço Parcelado</p>
+            </button>
             <div class="produto"></div>
             <div class="produto"></div>
             <div class="produto"></div>
@@ -109,7 +126,7 @@
             <div class="produto"></div>
           </div>
 
-          <button class="botao proximo">&#10095;</button>
+          <button class="botao proximo"><i class="fa-solid fa-chevron-right"></i></button>
         </div>
       </section>
       <section class="section-box recomendacoes">
@@ -122,7 +139,7 @@
           </button>
         </div>
         <div class="carrossel">
-          <button class="botao anterior">&#10094;</button>
+          <button class="botao anterior"><i class="fa-solid fa-chevron-left"></i></button>
 
           <div class="track">
             <div class="produto"></div>
@@ -136,7 +153,7 @@
             <div class="produto"></div>
           </div>
 
-          <button class="botao proximo">&#10095;</button>
+          <button class="botao proximo"><i class="fa-solid fa-chevron-right"></i></button>
         </div>
       </section>
       <section class="section-box mais-procurados">
@@ -149,7 +166,7 @@
           </button>
         </div>
         <div class="carrossel">
-          <button class="botao anterior">&#10094;</button>
+          <button class="botao anterior"><i class="fa-solid fa-chevron-left"></i></button>
 
           <div class="track">
             <div class="produto"></div>
@@ -163,7 +180,7 @@
             <div class="produto"></div>
           </div>
 
-          <button class="botao proximo">&#10095;</button>
+          <button class="botao proximo"><i class="fa-solid fa-chevron-right"></i></button>
         </div>
       </section>
       <section class="section-box novidades">
@@ -176,7 +193,7 @@
           </button>
         </div>
         <div class="carrossel">
-          <button class="botao anterior">&#10094;</button>
+          <button class="botao anterior"><i class="fa-solid fa-chevron-left"></i></button>
 
           <div class="track">
             <div class="produto"></div>
@@ -190,7 +207,7 @@
             <div class="produto"></div>
           </div>
 
-          <button class="botao proximo">&#10095;</button>
+          <button class="botao proximo"><i class="fa-solid fa-chevron-right"></i></button>
         </div>
       </section>
     </main>

@@ -1,0 +1,143 @@
+:root {
+  --primary: #f39c12;
+  --primary-dark: #d68910;
+  --dark: #2c3e50;
+  --light: #f4f6f7;
+  --white: #ffffff;
+  --danger: #e74c3c;
+  --text: #333333;
+  --background: rgb(22, 45, 95);
+  --blue: #69e7f0;
+  --black: #000;
+}
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+body {
+  background-color: #f4f7f6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+} 
+
+header {
+  border: 2px solid var(--white);
+  width: 100%;
+  min-height: 13vh;
+  display: grid;
+  grid-template-columns: 17rem 1fr;
+  grid-template-areas: "box-1 box-2";
+  padding: 10px;
+}
+.header-box-1 {
+  grid-area: box-1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--white);
+}
+.logo img {
+  width: 100%;
+  max-width: 10rem;
+  height: auto;
+  border: 2px solid var(--white);
+  background-color: var(--white);
+  padding: 5px;
+}
+.header-box-2 {
+  grid-area: box-2;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 0 20px;
+  border: 2px solid var(--white);
+}
+.home, .produtos, .servicos, .sobre-carrinho {
+  width: 5rem;
+  height: 2rem;
+  border: 2px solid var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.home a, .produtos a, .servicos a, .sobre-carrinho a{
+  color: var(--white);
+  text-decoration: none;
+  display: flex;
+  flex-direction: row;
+}
+.sobre-carrinho{
+  gap: 1vw;
+}
+.botoes {
+  width: 15rem;
+  height: 4rem;
+  border: 2px solid var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.btn-entrar{
+  width: 30%;
+  height: 50%;
+  background-color: var(--blue);
+}
+.btn-criar-conta{
+  width: 60%;
+  height: 50%;
+  background-color: var(--primary);
+}
+.btn-entrar:hover, .btn-criar-conta:hover{
+  background-color: var(--white);
+  cursor: pointer;
+  transition: background-color 0.5s, color 0.5s;
+}
+.btn-entrar a, .btn-criar-conta a{
+  color: var(--black);
+  text-decoration: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.login-form-wrapper {
+  padding: 50px;
+}
+fieldset{
+    border-radius: 10px;
+    padding: 10px 50px;
+}
+legend {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #2c3e50;
+  margin-bottom: 25px;
+}
+.input-group {
+  display: flex;
+  flex-direction: column; 
+  margin-bottom: 20px;
+}
+label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #34495e;
+  margin-bottom: 8px;
+}
+input {
+  padding: 12px 15px;
+  border: 2px solid #e0e6ed;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
