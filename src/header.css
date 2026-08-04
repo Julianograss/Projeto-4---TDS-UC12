@@ -25,6 +25,10 @@ body {
   align-items: center;
   min-height: 100%;
 } 
+main{
+  width: 100%;
+  height: 100%;
+}
 .header {
   width: 100%;
   min-height: 10vh;
@@ -123,6 +127,7 @@ body {
   background-color: var(--primary-hover);
   border-color: var(--primary-hover);
 }
+/*Login e Criar Conta*/
 .login-form-wrapper {
   width: 100%;
   height: 100%;
@@ -165,6 +170,24 @@ input {
   padding: 10px 50px;
   border-radius: 10px;
 }
+
+/*Carrinho*/
+
+.header-carrinho{
+  width: 100%;
+  min-height: 120px;
+  background-color: #162d5f;
+}
+.tabela-produtos{
+
+}
+.footer-carrinho{
+
+}
+
+/*Sobre*/
+
+
 @media (max-width: 1050px) {
   .header {
     display: flex;
