@@ -132,3 +132,40 @@ function mudarSlideBanner(direcao) {
     }
     slidesBanner[slideAtualBanner].classList.add('ativo');
 }
+
+let carrinho = JSON.parse(localStorage.getItem('techstore_carrinho')) || [];
+
+function salvarCarrinho() {
+    localStorage.setItem('techstore_carrinho', JSON.stringify(carrinho));
+}
+
+function adicionarAoCarrinho(idProduto) {
+    const produto = todosOsProdutos.find(p => p.id === idProduto);
+    
+    if (!produto) {
+        alert("Produto não encontrado!");
+        return;
+    }
+    const itemExistente = carrinho.find(item => item.id === idProduto);
+    
+    if (itemExistente) {
+        itemExistente.quantidade += 1;
+    } else {
+        carrinho.push({ ...produto, quantidade: 1 });
+    }
+    
+    salvarCarrinho();
+    atualizarContadorHeader();
+    alert(`${produto.nome} foi adicionado ao seu carrinho!`);
+}
+
+function atualizarContadorHeader() {
+    const contador = document.getElementById('contador-carrinho');
+    if (contador) {
+        const totalItens = carrinho.reduce((total, item) => total + item.quantidade, 0);
+        contador.textContent = totalItens;
+    }
+}
+document.addEventListener("DOMContentLoaded", () => {
+    atualizarContadorHeader();
+});
