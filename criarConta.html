@@ -5,12 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="src/header.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
 </head>
 <body>
-    <header>
+    <header class="header">
       <div class="header-box-1">
         <div class="logo">
-          <img src="src/logoTechStore.png" />
+          <a href="index.html"><img src="src/logoTechStore.png" /></a>
         </div>
       </div>
       <div class="header-box-2">
@@ -27,6 +31,33 @@
         </div>
       </div>
     </header>
-    <button class="voltar"><a href="index.html">Voltar</a></button>
+    <section class="login-form-wrapper">
+      <form id="form-login" action="#" method="POST" class="cadastro-form">
+        <fieldset>
+          <legend>Criar Conta</legend>
+          <div class="input-group">
+            <label for="email">E-mail</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              placeholder="seu@email.com"
+            />
+          </div>
+          <div class="input-group">
+            <label for="senha">Senha</label>
+            <input
+              type="password"
+              id="senha"
+              name="senha"
+              required
+              placeholder="Sua senha"
+            />
+          </div>
+          <button type="submit" class="btn-criar-minha-conta">Criar Minha Conta</button>
+        </fieldset>
+      </form>
+    </section>
 </body>
 </html>
