@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>TechStore Brasil</title>
     <link rel="stylesheet" href="src/style.css" />
     <link
       rel="stylesheet"
@@ -14,7 +14,7 @@
     <header class="header">
       <div class="header-box-1">
         <div class="logo">
-          <a href="index.html"><img src="src/logoTechStore.png" /></a>
+          <a href="index.html"><img src="src/res/logoTechStore.png" /></a>
         </div>
       </div>
       <div class="header-box-2">
@@ -109,23 +109,7 @@
         <div class="carrossel">
           <button class="botao anterior"><i class="fa-solid fa-chevron-left"></i></button>
 
-          <div class="track">
-            <div class="produto">
-              <img src="src/mouse.jpg">
-              <p>Mouse Logitech G203</p>
-              <p>R$ 120,00</p>
-              <p>12x de R$ 10,00</p>
-              <button class="btn-buscar" onclick="adicionarAoCarrinho(2)">Comprar</button>
-            </div>
-            <div class="produto"></div>
-            <div class="produto"></div>
-            <div class="produto"></div>
-            <div class="produto"></div>
-            <div class="produto"></div>
-            <div class="produto"></div>
-            <div class="produto"></div>
-            <div class="produto"></div>
-          </div>
+          <div class="track" id="track-populares"></div>
 
           <button class="botao proximo"><i class="fa-solid fa-chevron-right"></i></button>
         </div>
@@ -142,16 +126,7 @@
         <div class="carrossel">
           <button class="botao anterior"><i class="fa-solid fa-chevron-left"></i></button>
 
-          <div class="track">
-            <div class="produto"></div>
-            <div class="produto"></div>
-            <div class="produto"></div>
-            <div class="produto"></div>
-            <div class="produto"></div>
-            <div class="produto"></div>
-            <div class="produto"></div>
-            <div class="produto"></div>
-            <div class="produto"></div>
+          <div class="track" id="track-recomendacoes">
           </div>
 
           <button class="botao proximo"><i class="fa-solid fa-chevron-right"></i></button>
@@ -169,16 +144,8 @@
         <div class="carrossel">
           <button class="botao anterior"><i class="fa-solid fa-chevron-left"></i></button>
 
-          <div class="track">
-            <div class="produto"></div>
-            <div class="produto"></div>
-            <div class="produto"></div>
-            <div class="produto"></div>
-            <div class="produto"></div>
-            <div class="produto"></div>
-            <div class="produto"></div>
-            <div class="produto"></div>
-            <div class="produto"></div>
+          <div class="track" id="track-mais-procurados">
+            
           </div>
 
           <button class="botao proximo"><i class="fa-solid fa-chevron-right"></i></button>
@@ -196,16 +163,8 @@
         <div class="carrossel">
           <button class="botao anterior"><i class="fa-solid fa-chevron-left"></i></button>
 
-          <div class="track">
-            <div class="produto"></div>
-            <div class="produto"></div>
-            <div class="produto"></div>
-            <div class="produto"></div>
-            <div class="produto"></div>
-            <div class="produto"></div>
-            <div class="produto"></div>
-            <div class="produto"></div>
-            <div class="produto"></div>
+          <div class="track" id="track-novidades">
+            
           </div>
 
           <button class="botao proximo"><i class="fa-solid fa-chevron-right"></i></button>

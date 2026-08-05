@@ -413,6 +413,11 @@ footer {
   background-color: var(--dark-blue);
   color: var(--white);
 }
+
+
+
+/* Painel do Administrador */
+
 @media (max-width: 1050px) {
   .header {
     display: flex;
