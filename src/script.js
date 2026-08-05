@@ -167,7 +167,6 @@ const todosOsProdutos = [
     imagem: "src/ps5.jpg",
   },
 ];
-
 const bancoDeUsuarios = [
   {
     nome: "Administrador Chefe",
@@ -182,7 +181,6 @@ const bancoDeUsuarios = [
     tipo: "cliente",
   },
 ];
-
 const formLogin = document.getElementById("form-login");
 if (formLogin) {
   formLogin.addEventListener("submit", function (evento) {
@@ -192,7 +190,6 @@ if (formLogin) {
     const usuarioEncontrado = bancoDeUsuarios.find(
       (user) => user.email === emailDigitado && user.senha === senhaDigitada,
     );
-
     if (usuarioEncontrado) {
       localStorage.setItem("usuarioLogado", JSON.stringify(usuarioEncontrado));
       alert(`Bem-vindo(a) de volta, ${usuarioEncontrado.nome}!`);
@@ -208,7 +205,6 @@ if (formLogin) {
     }
   });
 }
-
 document
   .querySelectorAll(".carrossel:not(#banner-lancamentos)")
   .forEach((carrossel) => {
@@ -216,22 +212,17 @@ document
     const produtos = carrossel.querySelectorAll(".produto");
     const anterior = carrossel.querySelector(".anterior");
     const proximo = carrossel.querySelector(".proximo");
-
     if (!track || !produtos.length) return;
-
     let indice = 0;
-
     function colunasVisiveis() {
       const larguraCarrossel = carrossel.clientWidth;
       const larguraProduto = produtos[0].offsetWidth + 20;
       return Math.max(1, Math.floor(larguraCarrossel / larguraProduto));
     }
-
     function atualizar() {
       const largura = produtos[0].offsetWidth + 20;
       track.style.transform = `translateX(-${indice * largura}px)`;
     }
-
     proximo.addEventListener("click", () => {
       const visiveis = colunasVisiveis();
       if (indice >= produtos.length - visiveis) {
@@ -241,7 +232,6 @@ document
       }
       atualizar();
     });
-
     anterior.addEventListener("click", () => {
       const visiveis = colunasVisiveis();
       if (indice <= 0) {
@@ -251,7 +241,6 @@ document
       }
       atualizar();
     });
-
     window.addEventListener("resize", atualizar);
   });
 let slideAtualBanner = 0;
@@ -267,33 +256,92 @@ function mudarSlideBanner(direcao) {
   }
   slidesBanner[slideAtualBanner].classList.add("ativo");
 }
-
 let carrinho = JSON.parse(localStorage.getItem("techstore_carrinho")) || [];
-
 function salvarCarrinho() {
   localStorage.setItem("techstore_carrinho", JSON.stringify(carrinho));
 }
-
 function adicionarAoCarrinho(idProduto) {
   const produto = todosOsProdutos.find((p) => p.id === idProduto);
-
   if (!produto) {
     alert("Produto não encontrado!");
     return;
   }
   const itemExistente = carrinho.find((item) => item.id === idProduto);
-
   if (itemExistente) {
     itemExistente.quantidade += 1;
   } else {
     carrinho.push({ ...produto, quantidade: 1 });
   }
-
   salvarCarrinho();
   atualizarContadorHeader();
   alert(`${produto.nome} foi adicionado ao seu carrinho!`);
 }
-
+function formatarPreco(preco) {
+  return preco.toLocaleString("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+  });
+}
+function renderizarCarrinho() {
+  const tabelaProdutos = document.querySelector(".tabela-produtos");
+  const footerCarrinho = document.querySelector(".footer-carrinho");
+  if (!tabelaProdutos || !footerCarrinho) return;
+  tabelaProdutos.innerHTML = "";
+  footerCarrinho.innerHTML = "";
+  if (!carrinho || carrinho.length === 0) {
+    tabelaProdutos.innerHTML = '<div class="carrinho-vazio">Nenhum produto adicionado ao carrinho.</div>';
+    return;
+  }
+  carrinho.forEach((item) => {
+    const precoParcelado = item.preco / 10;
+    const produtoElemento = document.createElement("div");
+    produtoElemento.className = "carrinho-item";
+    produtoElemento.innerHTML = `
+      <img src="${item.imagem}" alt="${item.nome}" />
+      <div class="carrinho-item-info">
+        <h3>${item.nome}</h3>
+        <p class="preco">${formatarPreco(item.preco)}</p>
+        <p class="preco-parcelado">10x de ${formatarPreco(precoParcelado)} sem juros</p>
+        <p>Quantidade: ${item.quantidade}</p>
+        <button class="btn-remover-item" data-id="${item.id}">Remover 1</button>
+      </div>
+    `;
+    tabelaProdutos.appendChild(produtoElemento);
+  });
+  tabelaProdutos.querySelectorAll(".btn-remover-item").forEach((botao) => {
+    botao.addEventListener("click", () => {
+      const idProduto = Number(botao.dataset.id);
+      const itemIndex = carrinho.findIndex((item) => item.id === idProduto);
+      if (itemIndex === -1) return;
+      if (carrinho[itemIndex].quantidade > 1) {
+        carrinho[itemIndex].quantidade -= 1;
+      } else {
+        carrinho.splice(itemIndex, 1);
+      }
+      salvarCarrinho();
+      atualizarContadorHeader();
+      renderizarCarrinho();
+    });
+  });
+  const valorTotal = carrinho.reduce(
+    (total, item) => total + item.preco * item.quantidade,
+    0,
+  );
+  footerCarrinho.innerHTML = `
+    <div class="total">Total: ${formatarPreco(valorTotal)}</div>
+    <button class="btn-finalizar">Finalizar Compra</button>
+  `;
+  const botaoFinalizar = footerCarrinho.querySelector(".btn-finalizar");
+  if (botaoFinalizar) {
+    botaoFinalizar.addEventListener("click", () => {
+      carrinho = [];
+      salvarCarrinho();
+      atualizarContadorHeader();
+      renderizarCarrinho();
+      alert("Compra finalizada.");
+    });
+  }
+}
 function atualizarContadorHeader() {
   const contador = document.getElementById("contador-carrinho");
   if (contador) {
@@ -306,4 +354,5 @@ function atualizarContadorHeader() {
 }
 document.addEventListener("DOMContentLoaded", () => {
   atualizarContadorHeader();
+  renderizarCarrinho();
 });
