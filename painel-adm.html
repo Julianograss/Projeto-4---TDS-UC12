@@ -1,16 +1,16 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Administrador</title>
-    <link rel="stylesheet" href="src/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Painel do Administrador - TechStore</title>
+    <link rel="stylesheet" href="src/style.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
-</head>
-<body>
+  </head>
+  <body>
     <header class="header">
       <div class="header-box-1">
         <div class="logo">
@@ -19,55 +19,128 @@
       </div>
       <div class="header-box-2">
         <div class="home"><a href="index.html">Home</a></div>
-        <div class="produtos"><a href="#">Produtos<i class="fa-solid fa-chevron-down"></i></a></div>
-        <div class="servicos"><a href="#">Serviços<i class="fa-solid fa-chevron-down"></i></a></div>
+        <div class="produtos">
+          <a href="#">Produtos<i class="fa-solid fa-chevron-down"></i></a>
+        </div>
+        <div class="servicos">
+          <a href="#">Serviços<i class="fa-solid fa-chevron-down"></i></a>
+        </div>
         <div class="sobre-carrinho">
           <a href="sobre.html"><i class="fa-regular fa-circle-question"></i></a>
           <a href="carrinho.html"><i class="fa-solid fa-cart-shopping"></i></a>
         </div>
         <div class="botoes">
           <button class="btn-entrar"><a href="entrar.html">Entrar</a></button>
-          <button class="btn-criar-conta"><a href="criarConta.html">Criar Conta</a></button>
+          <button class="btn-criar-conta">
+            <a href="criarConta.html">Criar Conta</a>
+          </button>
         </div>
       </div>
     </header>
+
     <main class="main-adm">
-        <section class="dashboard ativo">
-            <div class="visao-vendas">
-                dia, semana, mes
-            </div>
-            <div class="grafico">
-                grafico de faturamento
-            </div>
-            <div class="faturamento">
-                Receita bruta e líquida: O total vendido e o valor real que entrou após descontos.
-                Ticket médio: O valor médio gasto por cada cliente em cada compra.
-                Taxa de aprovação: A porcentagem de pedidos pagos em relação aos gerados.
-                Meios de pagamento: A divisão do faturamento por Pix, cartão de crédito ou boleto.
-                Faturamento por canal: Separar o que é vendido no site próprio versus marketplaces.
-                Curva ABC de produtos: Quais itens geram mais receita para o negócio.
-                Comparativo temporal: Gráficos mostrando o desempenho diário, semanal e mensal.
-            </div>
-            <div class="num-pedidos">
-                Número de pedidos: A quantidade exata de vendas aprovadas no período.
-            </div>
-            <div class="pedidos-pendentes">
+      <h1 class="admin-section-titulo">Painel de Controle Administrativo</h1>
+      <section class="dashboard">
+        <div class="card-metric">
+          <h3>Receita Bruta</h3>
+          <p id="metric-receita">R$ 45.890,00</p>
+        </div>
+        <div class="card-metric">
+          <h3>Número de Pedidos</h3>
+          <p id="metric-pedidos">128</p>
+        </div>
+        <div class="card-metric">
+          <h3>Ticket Médio</h3>
+          <p id="metric-ticket">R$ 358,50</p>
+        </div>
+        <div class="card-metric">
+          <h3>Produtos Cadastrados</h3>
+          <p id="metric-produtos-count">30</p>
+        </div>
+      </section>
 
-            </div>
-            <div class="produtos-vendidos">
+      <section class="faturamento">
+        <h3>Implementações futuras</h3>
 
+        Receita bruta e líquida: O total vendido e o valor real que entrou após descontos. <br>
+        Ticket médio: O valor médio gasto por cada cliente em cadacompra. <br>
+        Taxa de aprovação: A porcentagem de pedidos pagos em relação aos gerados (94.5%). <br>
+        Meios de pagamento:Divisão por Pix (55%), Cartão de Crédito (35%) e Boleto (10%). <br>
+        Curva ABC de produtos: Identificação dos itens que geram maior faturamento (PC Gamer, PS5, Smartphones).<br>
+      </section>
+      <div class="cadastro-produtos-wrapper">
+        <div class="form-cadastrar">
+          <h2>Cadastrar Novo Produto</h2>
+          <form id="form-cadastrar-produto">
+            <div class="form-group">
+              <label for="nome-produto">Nome do Produto</label>
+              <input
+                type="text"
+                id="nome-produto"
+                required
+                placeholder="Ex: Teclado RGB Mecânico"
+              />
             </div>
-            <div class="clientes-novos">
-
+            <div class="form-group">
+              <label for="preco-produto">Preço (R$)</label>
+              <input
+                type="number"
+                step="0.01"
+                id="preco-produto"
+                required
+                placeholder="Ex: 299.90"
+              />
             </div>
-            <div class="estoque-baixo">
-
+            <div class="form-group">
+              <label for="categoria-produto">Categoria</label>
+              <select id="categoria-produto">
+                <option value="Periféricos">Periféricos</option>
+                <option value="Computadores">Computadores</option>
+                <option value="Gamer">Gamer</option>
+                <option value="Celulares e Tablets">Celulares e Tablets</option>
+                <option value="Áudio">Áudio</option>
+                <option value="Armazenamento">Armazenamento</option>
+              </select>
             </div>
-        </section>
-        <section class="produtos">
+            <div class="form-group">
+              <label for="imagem-produto">Imagem (Caminho ou arquivo)</label>
+              <select id="imagem-produto">
+                <option value="src/res/teclado.jpg">Teclado</option>
+                <option value="src/res/mouse.jpg">Mouse</option>
+                <option value="src/res/monitor.jpg">Monitor</option>
+                <option value="src/res/headset.jpg">Headset</option>
+                <option value="src/res/pc.jpg">PC Gamer</option>
+                <option value="src/res/notebook.jpg">Notebook</option>
+                <option value="src/res/smartphone.jpg">Smartphone</option>
+                <option value="src/res/ps5.jpg">Console PS5</option>
+              </select>
+            </div>
+            <button type="submit" class="btn-cadastrar-prod">
+              Salvar Produto
+            </button>
+          </form>
+        </div>
 
-        </section>
+        <div class="lista-produtos-adm">
+          <h2>Produtos Cadastrados no Sistema</h2>
+          <div class="box">
+            <table class="tabela-adm">
+              <thead>
+                <tr>
+                  <th>Img</th>
+                  <th>Nome</th>
+                  <th>Preço</th>
+                  <th>Ações</th>
+                </tr>
+              </thead>
+              <tbody id="tabela-produtos-adm-body"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
     </main>
-    <footer></footer>
-</body>
+
+    <footer style="margin-top: 60px"></footer>
+    <script src="src/script.js"></script>
+  </body>
 </html>

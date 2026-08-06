@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Criar conta</title>
+    <title>Criar Conta - TechStore</title>
     <link rel="stylesheet" href="src/header.css">
     <link
       rel="stylesheet"
@@ -14,7 +14,7 @@
     <header class="header">
       <div class="header-box-1">
         <div class="logo">
-          <a href="index.html"><img src="src/logoTechStore.png" /></a>
+          <a href="index.html"><img src="src/res/logoTechStore.png" /></a>
         </div>
       </div>
       <div class="header-box-2">
@@ -32,9 +32,19 @@
       </div>
     </header>
     <section class="login-form-wrapper">
-      <form id="form-login" action="#" method="POST" class="cadastro-form">
+      <form id="form-criar-conta" action="#" method="POST" class="cadastro-form">
         <fieldset>
           <legend>Criar Conta</legend>
+          <div class="input-group">
+            <label for="nome">Nome Completo</label>
+            <input
+              type="text"
+              id="nome"
+              name="nome"
+              required
+              placeholder="Seu nome completo"
+            />
+          </div>
           <div class="input-group">
             <label for="email">E-mail</label>
             <input
@@ -55,9 +65,21 @@
               placeholder="Sua senha"
             />
           </div>
-          <button type="submit" class="btn-criar-minha-conta">Criar Minha Conta</button>
+          <div class="input-group">
+            <label for="confirma-senha">Confirmar Senha</label>
+            <input
+              type="password"
+              id="confirma-senha"
+              name="confirmaSenha"
+              required
+              placeholder="Confirme sua senha"
+            />
+          </div>
+          <button type="submit" class="btn-submit">Criar Minha Conta</button>
+          <button type="button" class="btn-criar" onclick="window.location.href='entrar.html'">Já tenho uma conta</button>
         </fieldset>
       </form>
     </section>
+    <script src="src/script.js"></script>
 </body>
 </html>
