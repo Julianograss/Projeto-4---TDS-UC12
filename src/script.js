@@ -424,8 +424,8 @@ function carregarBannerLancamentos() {
     todosOsProdutos.slice(0, 6).forEach((produto) => {
       grade1.innerHTML += `
         <div class="produto-banner" style="background-image: url('${produto.imagem}');" onclick="adicionarAoCarrinho(${produto.id})">
-          <div>
-            <p style="background-color: #FFF; border-radius: 10px;">${produto.nome}</p>
+          <div style="background-color: #FFF; border-radius: 10px;">
+            <p>${produto.nome}</p>
             <p>R$ ${produto.preco.toFixed(2).replace(".", ",")}</p>
           </div>
         </div>
