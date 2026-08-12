@@ -425,7 +425,7 @@ function carregarBannerLancamentos() {
       grade1.innerHTML += `
         <div class="produto-banner" style="background-image: url('${produto.imagem}');" onclick="adicionarAoCarrinho(${produto.id})">
           <div>
-            <p>${produto.nome}</p>
+            <p style="background-color: #FFF; border-radius: 10px;">${produto.nome}</p>
             <p>R$ ${produto.preco.toFixed(2).replace(".", ",")}</p>
           </div>
         </div>
